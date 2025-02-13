@@ -1,0 +1,40 @@
+---
+const links = [
+  { href: '/', text: 'Home' },
+  { href: '/setup', text: 'Setup' },
+  { href: '/projects', text: 'Projects' }
+];
+---
+
+<nav>
+  <ul>
+    {links.map(link => (
+      <li><a href={link.href}>{link.text}</a></li>
+    ))}
+  </ul>
+  <style>
+    nav {
+        display: flex;
+        justify-content: center;
+        padding: 10px 50px 10px 50px;
+        background: #d4a373;
+        border-radius: 10px 50px 10px 50px;
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+    }
+    li {
+        display: inline;
+        color: #fdfff5;
+    }
+    a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+  </style>
+</nav>
