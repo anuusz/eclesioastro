@@ -11,7 +11,7 @@ body {
 .projects {
   text-align: center;
   padding: 2rem;
-  background-color: #fdfff5;
+  color: #b56576;
 }
 
 .project-grid {
@@ -23,17 +23,16 @@ body {
 
 .project-card {
   background-color: #fdfff5;
-  border: 1px solid var(--subtext);
   border-radius: 25px 25px 50px 50px;
   overflow: hidden;
   text-decoration: none;
-  color: var(--text);
+  color: #b56576;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px #8a8d91;
 }
 
 .project-card img {
