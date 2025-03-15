@@ -4,22 +4,32 @@ import "../styles/projects.css";
 
 const projects = [
   {
-    title: "Vortex Game Store (In Progress)",
-    description: "Website top-up game berbasis Django & Vue.js.",
+    title: "Data Visualisasi dataset smart watch",
+    description: "Latihan mandiri dalam mempelajari dan menerapkan teknik visualisasi data",
+    tech : "Python (Matplotlib, Seaborn, Pandas))",
     image: "/images/library.jpg",
-    link: "https://vortexgamestore.com"
+    link: ""
+  },
+  {
+    title: "Web Link Bio (clone linktree) Phone View",
+    description: "Website yang berfungsi seperti linktree dimana biasanya berada pada bio Instagram, Threads, X, Facebook, dll untuk mengarahkan ke website atau aplikasi lain yang dianggap penting",
+    tech : "HTML, CSS Javascript",
+    image: "/images/library.jpg",
+    link: "eclesiolink.vercel.app"
   },
   {
     title: "Sejiwa Mental Health",
     description: "Tugas Akhir Platform kesehatan mental dengan fitur konsultasi online.",
+    tech : "Django, HTML, CSS, JavaScript, Bootstrap",
     image: "/images/cozybunker.jpg",
-    link: "https://sejiwa.com"
+    link: ""
   },
   {
-    title: "Bible API",
-    description: "API berbasis Vue.js untuk membaca dan mencari ayat Alkitab.",
-    image: "/images/library.jpg",
-    link: "https://bibleapi.com"
+    title: "GUI Downloader Youtube",
+    description: "Aplikasi pribadi untuk mempermudah mengunduh video/musik dari YouTube tanpa gangguan iklan",
+    tech : "Python, PyQT6",
+    image: "/images/cozybunker.jpg",
+    link: ""
   }
 ];
 ---
@@ -34,6 +44,7 @@ const projects = [
           <div class="card-content">
             <h2>{project.title}</h2>
             <p>{project.description}</p>
+            <p>{project.tech}</p>
           </div>
         </a>
       ))}
