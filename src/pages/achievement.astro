@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/projects.css";
+
+const projects = [
+  {
+    title: "Python Fundamental for Data Science",
+    image: "/images/achievement/Python Fundamental for Data Science.jpg",
+    link: ""
+  },
+  {
+    title: "Introduction to Data Science with Python",
+    image: "/images/achievement/Introduction to Data Science with Python.jpg",
+    link: ""
+  },
+  {
+    title: "Belajar Dasar Pemrograman Web dengan React",
+    image: "/images/achievement/Belajar Dasar Pemrograman Web dengan React.jpg",
+    link: ""
+  }
+];
+---
+
+<Layout>
+  <section class="projects">
+    <h1>My Achievement</h1>
+    <div class="project-grid">
+      {projects.map((project) => (
+        <a href={project.link} target="_blank" class="project-card">
+          <img src={project.image} alt={project.title} />
+          <div class="card-content">
+            <h2>{project.title}</h2>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>

@@ -3,6 +3,7 @@ const links = [
   { href: '/', text: 'Home' },
   { href: '/setup', text: 'Setup' },
   { href: '/projects', text: 'Projects' },
+  { href: '/achievement', text: 'Achievement' },
   { href: '/guestbook', text: 'Guestbook' }
 ];
 ---
@@ -15,6 +16,8 @@ const links = [
   </ul>
   <style>
     nav {
+        position: fixed;
+        z-index: 99;
         display: flex;
         justify-content: center;
         padding: 10px 50px 10px 50px;

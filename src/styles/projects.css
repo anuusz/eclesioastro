@@ -1,6 +1,6 @@
 body {
     font-family: "Caveat", serif;
-    background-color: #fdfff5;
+    background-color: #FDF5E6;
     margin: 0;
     padding: 25px 0;
     display: flex;
@@ -10,7 +10,7 @@ body {
 
 .projects {
   text-align: center;
-  padding: 2rem;
+  padding-top: 50px;
   color: #b56576;
 }
 
