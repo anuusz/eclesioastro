@@ -9,40 +9,175 @@ const links = [
 ---
 
 <nav>
-  <ul>
-    {links.map(link => (
-      <li><a href={link.href}>{link.text}</a></li>
-    ))}
-  </ul>
+  <div class="nav-container">
+    <div class="logo">Eclesio</div>
+    <div class="hamburger-menu">
+      <label class="hamburger">
+        <input type="checkbox" id="menu-toggle" />
+        <svg viewBox="0 0 32 32">
+          <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
+    </div>
+    <ul id="nav-menu">
+      {links.map(link => (
+        <li><a href={link.href}>{link.text}</a></li>
+      ))}
+    </ul>
+  </div>
+
   <style>
     nav {
-        position: fixed;
-        z-index: 99;
-        display: flex;
-        justify-content: center;
-        padding: 10px 50px 10px 50px;
-        background: #d4a373;
-        border-radius: 10px 50px 10px 50px;
+      /* position: fixed; */
+      z-index: 99;
+      width: 100%;
+      padding: 10px 50px;
+      background: #d4a373;
+      border-radius: 10px 50px 10px 50px;
     }
+
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .logo {
+      display: none; /* Hidden on desktop */
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
     ul {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-        padding: 0;
-        margin: 0;
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
     }
+
     li {
-        display: inline;
-        color: #fdfff5;
+      display: inline;
+      color: #fdfff5;
     }
+
     a {
-        color: white;
-        text-decoration: none;
-        font-size: 1.2rem;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
     }
 
     a:hover {
-        color: #6b705c;
+      color: #6b705c;
+    }
+
+    /* Hamburger menu styles */
+    .hamburger-menu {
+      display: none;
+    }
+
+    .hamburger {
+      cursor: pointer;
+    }
+
+    .hamburger input {
+      display: none;
+    }
+
+    .hamburger svg {
+      height: 3em;
+      transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .line {
+      fill: none;
+      stroke: white;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 3;
+      transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                  stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .line-top-bottom {
+      stroke-dasharray: 12 63;
+    }
+
+    .hamburger input:checked + svg {
+      transform: rotate(-45deg);
+    }
+
+    .hamburger input:checked + svg .line-top-bottom {
+      stroke-dasharray: 20 300;
+      stroke-dashoffset: -32.42;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0
+      }
+
+      .nav-container {
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: block; /* Show logo on mobile */
+        padding-left: 50px;
+      }
+
+      .hamburger-menu {
+        display: block;
+        z-index: 100;
+        padding-right: 50px;
+      }
+
+      ul {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #d4a373;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        padding-top: 60px;
+      }
+
+      #menu-toggle:checked ~ ul {
+        transform: translateX(0);
+      }
     }
   </style>
+
+  <script is:inline>
+    // Handle menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener('change', function() {
+          navMenu.style.transform = this.checked ? 'translateX(0)' : 'translateX(-100%)';
+        });
+        
+        // Close menu when clicking on a link
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            menuToggle.checked = false;
+            navMenu.style.transform = 'translateX(-100%)';
+          });
+        });
+      }
+    });
+  </script>
 </nav>
